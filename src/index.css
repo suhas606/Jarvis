@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Orbitron", sans-serif;
+  
+  --color-jarvis-cyan: #00f2ff;
+  --color-jarvis-blue: #0066ff;
+  --color-jarvis-orange: #f27d26;
+  --color-jarvis-bg: #050a0f;
+}
+
+@layer base {
+  body {
+    @apply bg-jarvis-bg text-white font-sans overflow-hidden;
+  }
+
+  /* Futuristic scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-jarvis-cyan/20 rounded-full;
+  }
+}
+
+@layer components {
+  .jarvis-panel {
+    @apply bg-jarvis-bg/80 border border-jarvis-cyan/20 backdrop-blur-md rounded-lg p-4 relative overflow-hidden;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.05);
+  }
+
+  .jarvis-panel::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full bg-jarvis-cyan/40;
+  }
+
+  .jarvis-text-glow {
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+  }
+
+  .jarvis-border-glow {
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+  }
+}
